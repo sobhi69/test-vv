@@ -3,15 +3,15 @@
     "buildCommand":"tsc",
     "builds": [
       {
-        "src": "dist/index.js",
+        "src": "dest/index.js",
         "use": "@vercel/node",
-        "config": { "includeFiles": ["dist/**"] }
+        "config": { "includeFiles": ["dest/**"] }
       }
     ],
     "routes": [
       {
         "src": "/(.*)",
-        "dest": "dist/index.js",
+        "dest": "dest/index.js",
         "methods": ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
         "headers": {
           "Access-Control-Allow-Credentials": "true",
