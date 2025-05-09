@@ -16,6 +16,9 @@ app.use((0, cors_1.default)({
     origin: '',
     optionsSuccessStatus: 200
 }));
+app.use(function (req, res, next) {
+    res.header("Access-Control-Allow-Origin", '*');
+});
 app.use(express_1.default.json());
 app.use(express_1.default.urlencoded({ 'extended': false }));
 app.use('/api/user', user_1.default);
