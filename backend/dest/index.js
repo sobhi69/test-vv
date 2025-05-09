@@ -11,14 +11,14 @@ const user_1 = __importDefault(require("./routes/user"));
 app.get('/', (req, res) => {
     res.json({ message: "Thanks God           1" });
 });
-app.use((0, cors_1.default)({
-    'credentials': true,
-    origin: "https://www.google.com/"
-}));
 app.use(function (req, res, next) {
     res.setHeader("Access-Control-Allow-Origin", '*');
     next();
 });
+app.use((0, cors_1.default)({
+    'credentials': true,
+    origin: "https://www.google.com/"
+}));
 app.use(express_1.default.json());
 app.use(express_1.default.urlencoded({ 'extended': false }));
 app.use('/api/user', user_1.default);
