@@ -16,8 +16,10 @@ app.use(function (req, res, next) {
     next();
 });
 app.use((0, cors_1.default)({
-    'credentials': true,
-    origin: "https://www.google.com/"
+    origin(requestOrigin, callback) {
+        console.log(requestOrigin);
+        return callback(null, true);
+    }, optionsSuccessStatus: 200
 }));
 app.use(express_1.default.json());
 app.use(express_1.default.urlencoded({ 'extended': false }));

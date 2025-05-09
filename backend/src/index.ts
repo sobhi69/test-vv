@@ -13,9 +13,11 @@ app.use(function(req,res,next){
 })
 
 app.use(cors({
-    'credentials':true,
-    origin:"https://www.google.com/"
-}))
+    origin(requestOrigin, callback) {
+        console.log(requestOrigin)
+        return callback(null,true)
+    },optionsSuccessStatus:200}
+))
 
 app.use(express.json())
 app.use(express.urlencoded({'extended':false}))
