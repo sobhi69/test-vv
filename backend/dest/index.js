@@ -12,12 +12,12 @@ app.get('/', (req, res) => {
     res.json({ message: "Thanks God           1" });
 });
 app.use((0, cors_1.default)({
-    credentials: true,
-    origin: '',
-    optionsSuccessStatus: 200
+    'credentials': true,
+    origin: "https://www.google.com/"
 }));
 app.use(function (req, res, next) {
-    res.header("Access-Control-Allow-Origin", '*');
+    res.setHeader("Access-Control-Allow-Origin", '*');
+    next();
 });
 app.use(express_1.default.json());
 app.use(express_1.default.urlencoded({ 'extended': false }));

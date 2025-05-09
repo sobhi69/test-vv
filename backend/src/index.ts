@@ -7,7 +7,10 @@ app.get('/',(req,res) => {
     res.json({message:"Thanks God           1"})
 })
 
-app.use(cors())
+app.use(cors({
+    'credentials':true,
+    origin:"https://www.google.com/"
+}))
 app.use(function(req,res,next){
     res.setHeader("Access-Control-Allow-Origin",'*')
     next()
