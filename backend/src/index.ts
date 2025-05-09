@@ -8,7 +8,8 @@ app.get('/',(req,res) => {
 })
 
 app.use(function(req,res,next){
-    res.setHeader("Access-Control-Allow-Origin",'*')
+    res.header('Access-Control-Allow-Credentials','true')
+    res.header("Access-Control-Allow-Origin",'*')
     next()
 })
 
@@ -16,7 +17,7 @@ app.use(cors({
     origin(requestOrigin, callback) {
         console.log(requestOrigin)
         return callback(null,true)
-    },optionsSuccessStatus:200}
+    },optionsSuccessStatus:200,credentials:true}
 ))
 
 app.use(express.json())
